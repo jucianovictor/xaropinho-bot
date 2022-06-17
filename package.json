@@ -3,7 +3,10 @@
 	"version": "1.0.0",
 	"main": "main.js",
 	"scripts": {
-		"start": "ts-node src/main.ts"
+		"dev": "ts-node src/main.ts",
+		"build": "tsc",
+		"start": "node dist/main.js",
+		"up": "npm run build && npm run start"
 	},
 	"dependencies": {
 		"@discordjs/voice": "^0.10.0",
