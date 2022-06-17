@@ -1,4 +1,11 @@
+import {
+	createAudioPlayer,
+	createAudioResource,
+	joinVoiceChannel,
+	NoSubscriberBehavior,
+} from '@discordjs/voice';
 import { Client, Message } from 'discord.js';
+import play from 'play-dl';
 import { xaropinhoCommands } from './commands/xaropinho-commands';
 import { PREFIX } from './config';
 
@@ -10,7 +17,7 @@ export default function handler(client: Client) {
 
 		pingPong(message);
 		help(message);
-		handleXaropinhoCommands(message);
+		handleXaropinhoSongs(message);
 	});
 
 	client.on('ready', () => {
@@ -33,14 +40,36 @@ const help = (message: Message<boolean>) => {
 	);
 };
 
-const handleXaropinhoCommands = (message: Message<boolean>) => {
+const handleXaropinhoSongs = async (message: Message<boolean>) => {
 	const key = Object.keys(xaropinhoCommands).find(
 		key => PREFIX.concat(key) === message.content
 	);
 
-	if (!key) return;
+	if (!message.member?.voice.channel)
+		return message.channel.send('Connect to a Voice Channel!');
 
-	message.reply(
-		xaropinhoCommands[key].message + '\n' + xaropinhoCommands[key].url
-	);
+	if (!key || !message.guild) return;
+
+	const voiceChannelConnection = joinVoiceChannel({
+		channelId: message.member.voice.channel.id,
+		guildId: message.guild.id,
+		adapterCreator: message.guild.voiceAdapterCreator,
+	});
+
+	const stream = await play.stream(xaropinhoCommands[key].url);
+
+	const resource = createAudioResource(stream.stream, {
+		inputType: stream.type,
+	});
+
+	const player = createAudioPlayer({
+		behaviors: {
+			noSubscriber: NoSubscriberBehavior.Play,
+		},
+	});
+
+	player.play(resource);
+	voiceChannelConnection.subscribe(player);
+
+	message.reply(xaropinhoCommands[key].message);
 };

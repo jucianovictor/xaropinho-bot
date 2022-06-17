@@ -8,7 +8,7 @@ const xaropinhoCommands: XaropinhoCommands = {
 
 	pare: {
 		message: 'PARE!',
-		url: 'https://www.youtube.com/watch?v=djnyU9-ZyVg',
+		url: 'https://www.youtube.com/watch?v=QO7fw-OcOD4&ab_channel=LisKuroha',
 	},
 
 	cavalo: {
@@ -172,13 +172,41 @@ const xaropinhoCommands: XaropinhoCommands = {
 	},
 
 	'ele-gosta': {
-		message: ' 😏 ',
-		url: 'https://www.youtube.com/watch?v=WFci2lINVE8',
+		message: 'Ele gosta 😏 ',
+		url: 'https://youtu.be/JNVkNUgQwEc',
 	},
 
 	'olha-ele-ae': {
 		message: 'Olha ele aé!!!',
 		url: 'https://www.youtube.com/watch?v=W8ab00LC-JQ',
+	},
+	ui: {
+		message: 'Uuuuuuuuuiii!',
+		url: 'https://www.youtube.com/watch?v=GZElOROqifs&ab_channel=AndsuZG9',
+	},
+	tome: {
+		message: 'tome',
+		url: 'https://www.youtube.com/watch?v=EitCPuhiEgc&ab_channel=Ayreless',
+	},
+	nao: {
+		message: 'Não',
+		url: 'https://www.youtube.com/watch?v=W7QITohk1pw&ab_channel=EfeitosSonorosBeats',
+	},
+	demais: {
+		message: 'Demais',
+		url: 'https://www.youtube.com/watch?v=l4RisRXfum4&ab_channel=EfeitosSonorosBeats',
+	},
+	'danca-gatinho': {
+		message: 'Danca gatinho',
+		url: 'https://www.youtube.com/watch?v=59_QDtIXCO4&ab_channel=EsterFreitas',
+	},
+	aiaiai: {
+		message: 'Aiaiai',
+		url: 'https://www.youtube.com/watch?v=wRMxeaIz9jM&ab_channel=EsterFreitas',
+	},
+	chega: {
+		message: 'Cheeeeega',
+		url: 'https://www.youtube.com/watch?v=GWaVmsgqeKI&ab_channel=EsterFreitas',
 	},
 };
 

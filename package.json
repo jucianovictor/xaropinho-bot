@@ -6,8 +6,11 @@
 		"start": "ts-node src/main.ts"
 	},
 	"dependencies": {
+		"@discordjs/voice": "^0.10.0",
 		"discord.js": "^13.8.0",
-		"express": "^4.18.1"
+		"express": "^4.18.1",
+		"libsodium-wrappers": "^0.7.10",
+		"play-dl": "^1.9.5"
 	},
 	"author": "Juciano Victor",
 	"license": "MIT",
