@@ -45,10 +45,10 @@ const handleXaropinhoSongs = async (message: Message<boolean>) => {
 		key => PREFIX.concat(key) === message.content
 	);
 
+	if (!key || !message.guild) return;
+
 	if (!message.member?.voice.channel)
 		return message.channel.send('Connect to a Voice Channel!');
-
-	if (!key || !message.guild) return;
 
 	const voiceChannelConnection = joinVoiceChannel({
 		channelId: message.member.voice.channel.id,
