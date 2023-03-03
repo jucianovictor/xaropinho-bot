@@ -2,9 +2,9 @@
 FROM node:16-alpine
 
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json ./
 
-RUN npm ci --prod
+RUN npm i --omit=dev
 
 FROM node:16-alpine
 
